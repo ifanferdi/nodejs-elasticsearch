@@ -1,0 +1,29 @@
+<table>
+    <thead>
+    <tr>
+        <td colspan="2" data-a-h="center" data-a-v="center" data-f-bold="true" data-f-name="Arial" data-f-sz="12">
+            BENTUK SOAL - <%= form.name %>
+        </td>
+    </tr>
+    <tr></tr>
+
+    </thead>
+    <tbody>
+    <tr>
+        <td data-b-a-s="thin" data-a-v="top" data-f-bold="true"> Nama Bentuk Soal</td>
+        <td data-b-a-s="thin" data-a-v="top"><%= form.name %></td>
+    </tr>
+    <tr>
+        <td data-b-a-s="thin" data-a-v="center" data-f-bold="true" rowspan="<%= form.questionForm.length %>">
+            Form Soal
+        <td data-b-a-s="thin" data-a-v="top"><%= form.questionForm[0].text %></td>
+    </tr>
+    <% form.questionForm.forEach((question, index) =>{ %>
+        <% if(index !== 0) { %>
+            <tr>
+                <td data-b-a-s="thin" data-a-v="top"><%= question.text %></td>
+            </tr>
+        <% } %>
+    <% }) %>
+    </tbody>
+</table>

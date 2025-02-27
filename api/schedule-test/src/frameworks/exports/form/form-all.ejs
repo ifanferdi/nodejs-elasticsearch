@@ -1,0 +1,33 @@
+<table>
+    <thead>
+    <tr>
+        <td colspan="3" data-a-h="center" data-a-v="center" data-f-bold="true" data-f-name="Arial" data-f-sz="12">
+            DAFTAR BENTUK SOAL
+        </td>
+    </tr>
+    <tr></tr>
+
+    <tr>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">No</td>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">Nama Bentuk Soal</td>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">Form Soal</td>
+    </tr>
+    </thead>
+    <tbody>
+    <% forms.forEach((form, index) =>{ %>
+        <tr>
+            <td data-b-a-s="thin" data-a-v="center" data-a-h="center"
+                rowspan="<%= form.questionForm.length %>"><%= index + 1  %> </td>
+            <td data-b-a-s="thin" data-a-v="center" rowspan="<%= form.questionForm.length %>"><%= form.name %></td>
+            <td data-b-a-s="thin" data-a-v="top"><%= form.questionForm[0].text %></td>
+        </tr>
+        <% form.questionForm.forEach((question, index) =>{ %>
+            <% if(index !== 0) { %>
+                <tr>
+                    <td data-b-a-s="thin" data-a-v="top"><%= question.text %></td>
+                </tr>
+            <% } %>
+        <% }) %>
+    <% }) %>
+    </tbody>
+</table>

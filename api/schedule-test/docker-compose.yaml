@@ -1,0 +1,38 @@
+version: '3.0'
+
+services:
+
+  # db:
+  #   container_name: schedule_test_db
+  #   image: postgres:latest
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: $DB_USERNAME
+  #     POSTGRES_PASSWORD: $DB_PASSWORD
+  #     POSTGRES_DB: $DB_NAME
+  #   ports:
+  #     - target: 5432
+  #       published: 5432
+  #   networks:
+  #     - schedule_test_network
+
+  ba_app:
+    container_name: ba_schedule_test_app
+    image: "ba_schedule_test_app"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - target: 3000
+        published: 4008
+    networks:
+      - sisfo-remake-bahasa
+    restart: always
+    env_file:
+      - ./docker.env
+    # depends_on:
+    #   - db
+
+networks:
+  sisfo-remake-bahasa:
+    driver: bridge

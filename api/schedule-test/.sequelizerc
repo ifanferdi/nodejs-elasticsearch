@@ -1,0 +1,12 @@
+const config = require('./src/config/config')
+require("dotenv").config()
+const path = require("path");
+const modelPath = "src/frameworks/database/" + config.database.dialect;
+const toolsPath = "src/frameworks/tools";
+
+module.exports = {
+  "config": path.resolve(toolsPath, "config.js"),
+  "models-path": path.resolve(modelPath, "models"),
+  "seeders-path": path.resolve(toolsPath, "seeders"),
+  "migrations-path": path.resolve(toolsPath, "migrations"),
+};

@@ -1,0 +1,33 @@
+<table>
+    <thead>
+    <tr>
+        <td colspan="6" data-a-h="center" data-a-v="center" data-f-bold="true" data-f-name="Arial" data-f-sz="12">
+            DAFTAR JADWAL
+        </td>
+    </tr>
+    <tr></tr>
+
+    <tr>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">No</td>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">Kursus</td>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">Mata Diklat</td>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">Tipe Test</td>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">Tanggal</td>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">Durasi</td>
+        <td data-a-v="top" data-b-a-s="thin" data-a-h="center" data-f-bold="true">Keterangan</td>
+    </tr>
+    </thead>
+    <tbody>
+    <% schedules.forEach((schedule, index) =>{ %>
+        <tr>
+            <td data-b-a-s="thin" data-a-v="top" data-a-h="center"><%= index + 1 %></td>
+            <td data-b-a-s="thin" data-a-v="top"><%= schedule.course %></td>
+            <td data-b-a-s="thin" data-a-v="top"><%= schedule.subject %></td>
+            <td data-b-a-s="thin" data-a-v="top"><%= schedule.type %></td>
+            <td data-b-a-s="thin" data-a-v="top" data-t="s"><%= schedule.date %></td>
+            <td data-b-a-s="thin" data-a-v="top"><%= schedule.duration %></td>
+            <td data-b-a-s="thin" data-a-v="top"><%= schedule.desc %></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
